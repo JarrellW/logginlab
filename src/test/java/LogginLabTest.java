@@ -1,3 +1,6 @@
+import org.junit.Test;
+
+import java.sql.SQLOutput;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,5 +33,13 @@ public class LogginLabTest {
                 assertFalse(lab.thresholdExceeds(i));
             }
         }
+    }
+    @Test
+    public void thresholdReachedTest() {
+        LogginLab lab = new LogginLab();
+        lab.setThreshold(10);
+        Boolean actual = lab.thresholdReached(11);
+        Boolean expected = true;
+        assertEquals(expected, actual);
     }
 }
